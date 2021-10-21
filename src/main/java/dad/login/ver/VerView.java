@@ -1,6 +1,7 @@
 package dad.login.ver;
 
 import javafx.geometry.HPos;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -55,12 +56,12 @@ public class VerView extends VBox{
 	this.setSpacing(15);
 	this.setAlignment(Pos.CENTER);
 	this.setPrefHeight(20);
-	this.getChildren().addAll(view);
+	this.getChildren().addAll(ver);
 	this.setPadding(new Insets(30, 50, 50, 5));		
 }
 	
 		
-}
+
 	public TextField getUsuarioText() {
 		return usuarioText;
 	}
