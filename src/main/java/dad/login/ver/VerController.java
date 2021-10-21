@@ -3,6 +3,7 @@ package dad.login.ver;
 import dad.login.ver.VerModel;
 import dad.login.ver.VerView;
 import javafx.event.ActionEvent;
+import javafx.stage.Stage;
 
 public class VerController {
 	private VerView view = new VerView();
@@ -10,12 +11,13 @@ public class VerController {
 		view.getAccederButton().setOnAction(e->onAccederAction(e));
 		view.getCancelarButton().setOnAction(e->onCancelarAction(e));
 	}
-	private Object onCancelarAction(ActionEvent e) {
-		// TODO Auto-generated method stub
-		return null;
+	private void onCancelarAction(ActionEvent e) {
+		
 	}
-	private Object onAccederAction(ActionEvent e) {
-		// TODO Auto-generated method stub
-		return null;
+	private void onAccederAction(ActionEvent e) {
+		
+	}
+	public VerView getView() {
+		return view;
 	}
 }
