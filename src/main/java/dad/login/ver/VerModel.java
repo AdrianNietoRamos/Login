@@ -4,10 +4,12 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class VerModel {
-private final StringProperty usuario=new SimpleStringProperty();
+	String usuario;
+	String contrasena;
+	public VerModel(String user,String password) {
+		usuario=user;
+		this.contrasena=password;
+	}
 
-public final StringProperty usuarioProperty() {
-	return this.usuario;
 	
-}
 }
