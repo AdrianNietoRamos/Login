@@ -24,31 +24,39 @@ public class VerView extends VBox{
 	public VerView() {
 		super();
 		usuarioLabel=new Label("Usuario:");
-		usuarioText=new TextField();
+		usuarioText=new TextField("Nombre de usuario");
 		contrasenaLabel=new Label("Contraseña:");
 		contrasenaText=new PasswordField();
 		usarCheck=new CheckBox();
+		usarCheck.setAlignment(Pos.CENTER);
 		accederButton=new Button("Acceder");
 		cancelarButton=new Button("Cancelar");
 		
 		HBox botonesBox=new HBox(5);
 		botonesBox.setSpacing(10);
-		botonesBox.setAlignment(Pos.CENTER);
+		botonesBox.setAlignment(Pos.CENTER_LEFT);
 		botonesBox.getChildren().addAll(accederButton,cancelarButton);
+		HBox checkboxBox=new HBox(5);
+		checkboxBox.setSpacing(10);
+		checkboxBox.setAlignment(Pos.CENTER_LEFT);
+		checkboxBox.getChildren().addAll(usarCheck,new Label("Usar LDAP"));
 		
 	GridPane ver=new GridPane();
-	ver.setGridLinesVisible(false);
+	ver.setGridLinesVisible(true);
 	ver.setAlignment(Pos.BASELINE_CENTER);
 	ver.setVgap(10);
 	ver.setHgap(10);
 	ver.addRow(0, usuarioLabel,usuarioText);
 	ver.addRow(1, contrasenaLabel,contrasenaText);
-	ver.addRow(2, usarCheck,new Label("Usar LDAP"));
+	
+	ver.addColumn(1, checkboxBox);
 	ver.addRow(3, new Label(""), botonesBox);
+	
 	
 	ColumnConstraints[] cons1 = { new ColumnConstraints(), new ColumnConstraints(), };
 	cons1[0].setHalignment(HPos.LEFT);
 	cons1[1].setFillWidth(true);
+	
 	
 	ver.getColumnConstraints().setAll(cons1);
 	
