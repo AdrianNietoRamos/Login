@@ -1,13 +1,16 @@
 package dad.login.ver;
 
+import javafx.application.Platform;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -42,7 +45,7 @@ public class VerView extends VBox{
 		checkboxBox.getChildren().addAll(usarCheck,new Label("Usar LDAP"));
 		
 	GridPane ver=new GridPane();
-	ver.setGridLinesVisible(true);
+	ver.setGridLinesVisible(false);
 	ver.setAlignment(Pos.BASELINE_CENTER);
 	ver.setVgap(10);
 	ver.setHgap(10);
@@ -67,8 +70,34 @@ public class VerView extends VBox{
 	this.getChildren().addAll(ver);
 	this.setPadding(new Insets(30, 50, 50, 5));		
 }
+	public void mostrarAlertAccesoPermitido() {
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Iniciar sesión");
+		alert.setHeaderText("Acceso permitido");
+		alert.setContentText("Las credenciales de acceso son válidas.");
+
+		alert.showAndWait();
+		Platform.exit();
+	}
 	
+	public void mostrarAlertAccesoDenegado() {
+		Alert alert = new Alert(AlertType.ERROR);
+		alert.setTitle("Iniciar sesión");
+		alert.setHeaderText("Acceso denegado");
+		alert.setContentText("El usuario y/o la contraseña no son válidos.");
+
+		alert.showAndWait();
 		
+	}
+	
+	public void mostrarAlertFicheroNoEncontrado() {
+		Alert alert = new Alert(AlertType.ERROR);
+		alert.setTitle("Iniciar sesión");
+		alert.setHeaderText("Fichero no encontrado");
+		alert.setContentText("Se ha producido un error intentando acceder al fichero con los datos de los usuarios");
+
+		alert.showAndWait();
+	}
 
 	public TextField getUsuarioText() {
 		return usuarioText;
